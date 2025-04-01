@@ -53,7 +53,11 @@ export default function Contact() {
   };
 
   const handleBlockedContacts = () =>{
-    navigate("/blocked-contacts");
+    navigate('/blocked-contacts');
+  }
+
+  const handleContactClick = () => {
+    navigate('/contact-details');
   }
 
   return (
@@ -71,7 +75,12 @@ export default function Contact() {
       <div className={styles.contactList}>
         {filteredContacts.length === 0 ? ( <p className={styles.noContacts}>No contacts found.</p> ) : (
           filteredContacts.map((contact) => (
-            <div key={contact.id} className={styles.contactBox}>
+            <div key={contact.id} className={styles.contactBox} onClick={handleContactClick}>
+
+              <div className={styles.contactAvatar}>
+                {contact.name.charAt(0).toUpperCase()}
+              </div>
+
               <div className={styles.contactDetails}>
                 <span className={styles.contactName}>{contact.name}</span>
                 <span className={styles.contactPhone}>{contact.phoneNumber}</span>
