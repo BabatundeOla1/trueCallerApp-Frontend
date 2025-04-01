@@ -15,7 +15,7 @@ function App() {
       <Route path="/contact" element = {<Contact/>} />
       <Route path="/add-contact" element = {<AddContact/>} />
       <Route path="/blocked-contacts" element = {<BlockedContact/>} />
-      <Route path="/contact-details" element = {<ContactDetails/>} />
+      <Route path="/contact-details/:contactId" element={<ContactDetails />} />
 
     </Routes>
    </Router>

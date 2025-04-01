@@ -73,7 +73,6 @@ export default function AddContact() {
   return (
     <div className={styles.addContactPage}>
       {/* <h2 className={styles.title}>Add New Contact</h2> */}
-      {/* {error && <p className={styles.error}>{error}</p>} */}
 
       <form onSubmit={handleSubmit} className={styles.form}>
       <h2 className={styles.title}>Add New Contact</h2>
@@ -90,7 +89,7 @@ export default function AddContact() {
         <input name="email" type="email" placeholder="Email" value={contact.email}
           onChange={handleInputChange} className={styles.input} required/>
 
-        <label htmlFor="address">Email:</label>
+        <label htmlFor="address">Address:</label>
         <input name="address" type="address" placeholder="Address" value={contact.address}
           onChange={handleInputChange} className={styles.input} required/>
 

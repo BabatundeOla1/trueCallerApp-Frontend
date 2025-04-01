@@ -2,7 +2,7 @@
   background-color: #1e2a44; 
   margin: auto;
   width: 500px;
-  height: 900px;
+  height: 800px;
   /* min-height: 100vh; */
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -85,6 +85,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   gap: 20px;
+  width: 450px;
   align-items: center;
   transition: transform 0.2s ease;
 }
