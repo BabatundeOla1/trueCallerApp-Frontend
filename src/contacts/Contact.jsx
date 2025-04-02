@@ -63,6 +63,10 @@ export default function Contact() {
     navigate(`/contact-details/${contactId}`); 
   };
 
+  const handleNumberVerification = () => {
+    navigate("/phone-number-verification");
+  };
+
   return (
     <div className={styles.contactPage}>
       <div className={styles.addContactAndContacts}>
@@ -73,14 +77,9 @@ export default function Contact() {
       </div>
 
       <div className={styles.searchContainer}>
-        <input
-          type="text"
-          placeholder="Search by name or phone number..."
-          value={searchTerm}
-          onChange={handleSearch}
-          className={styles.searchInput}
-        />
-      </div>
+        <input type="text" placeholder="Search by name or phone number..." value={searchTerm}
+          onChange={handleSearch} className={styles.searchInput} />
+      </div>   
 
       <div className={styles.contactList}>
         {filteredContacts.length === 0 ? (
@@ -96,19 +95,23 @@ export default function Contact() {
                 <span className={styles.contactPhone}>{contact.phoneNumber}</span>
               </div>
 
-              {contact.blocked && ( <span className={styles.blockedIcon}>🔒 <p>Blocked</p> </span> )}
+              {contact.blocked && ( <span className={styles.blockedIcon}>🔒 </span> )}
                             
             </div>
           ))
         )}
       </div>
 
-      <button
-        className={styles.blockedContact}
-        onClick={handleBlockedContacts}
-      >
-        🔒 Blocked Contacts
-      </button>
+        <div className={styles.verifyAndBlockButton}>
+          <button className={styles.blockedContact} onClick={handleBlockedContacts}>
+            🔒 Blocked Contacts
+          </button>
+
+          <button className={styles.verifyButton} onClick={handleNumberVerification}>
+            Verify Number
+          </button>
+        </div>
+      
     </div>
   );
 }
