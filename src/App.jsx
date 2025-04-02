@@ -3,6 +3,7 @@ import Profile from "./profile/Profile"
 import Contact from "./contacts/Contact"
 import AddContact from "./contacts/AddContact"
 import BlockedContact from "./contacts/BlockedContact"
+import EdiitContact from "./contacts/EdiitContact"
 import ContactDetails from "./contacts/ContactDetails"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
@@ -16,7 +17,7 @@ function App() {
       <Route path="/add-contact" element = {<AddContact/>} />
       <Route path="/blocked-contacts" element = {<BlockedContact/>} />
       <Route path="/contact-details/:contactId" element={<ContactDetails />} />
-
+      <Route path="/edit-contact/:contactId" element= {<EdiitContact/>} />
     </Routes>
    </Router>
   )

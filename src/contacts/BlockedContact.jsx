@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import styles from './BlockedContact.module.css';
+import UnblockContact from './UnblockContact';
+
 
 export default function BlockedContact() {
   const [blockedContacts, setBlockedContacts] = useState([]); 
@@ -75,8 +77,12 @@ export default function BlockedContact() {
                 <span className={styles.contactName}>{contact.name}</span>
                 <span className={styles.contactPhone}>{contact.phoneNumber}</span>
               </div>
+              <div className={styles.blockAndUnblockSymbol}>
 
-              <span className={styles.blockedIcon}>🔒 Blocked</span>
+                <span className={styles.blockedIcon}>🔒 <p>Blocked</p></span>
+                <UnblockContact phoneNumber={contact.phoneNumber} isBlocked={contact.isBlocked ?? true} onBlockToggle={fetchBlockedContact} />
+                                               
+             </div>
             </div>
           ))
         )}

@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import DeleteContact from './DeleteContact'; 
 import styles from './ContactDetails.module.css';
+import BlockAndUnblockContact from "./Block";
+
 
 export default function ContactDetails() {
   const [contact, setContact] = useState(null);
@@ -36,9 +38,31 @@ export default function ContactDetails() {
   }, [contactId, navigate]);
 
 
+  const handleBlockToggle = () => {
+    setContact((prevContact) => {
+      if (!prevContact) return prevContact;
+
+      const updatedContact = { ...prevContact, isBlocked: !prevContact.isBlocked };
+
+      const storedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+      const updatedContacts = storedContacts.map((c) =>
+        c.id === contactId ? updatedContact : c
+      );
+      localStorage.setItem("contacts", JSON.stringify(updatedContacts));
+
+      return updatedContact;
+    });
+  };
+  
   if (!contact) {
     return <div className={styles.loading}>Loading...</div>;
   }
+
+
+    const handleEditContact = (contactId) => {
+      navigate(`/edit-contact/${contactId}`); 
+    }
+
 
   return (
     <div className={styles.contactDetailsPage}>
@@ -53,13 +77,14 @@ export default function ContactDetails() {
         <p><strong>Phone Number:</strong> {contact.phoneNumber}</p>
         <p><strong>Email:</strong> {contact.email || "Not provided"}</p>
         <p><strong>Address:</strong> {contact.address || "Not provided"}</p>
-        <p><strong>Blocked:</strong> {contact.blocked ? "Yes" : "No"}</p>
+        <p><strong>Blocked:</strong> {contact.isBlocked ? "Yes" : "No"}</p>
+
       </div>
 
       <div className={styles.deleteAndEditButton}>
-        {/* <button className={styles.deleteButton} >Delete</button> */}
+      <BlockAndUnblockContact phoneNumber={contact.phoneNumber} isBlocked={contact.isBlocked} onBlockToggle={handleBlockToggle} />
         <DeleteContact phoneNumber={contact.phoneNumber} />
-        <button className={styles.editButton} onClick={() => navigate("/contact")} > Edit </button>
+        <button className={styles.editButton} onClick={handleEditContact} > Edit </button>
       </div>
 
     </div>

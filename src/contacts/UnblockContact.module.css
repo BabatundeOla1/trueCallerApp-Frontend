@@ -1,0 +1,21 @@
+.blockButton {
+  background-color: green; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 100px;
+  margin-left: 180px;
+}
+
+.blockButton:hover {
+  background-color: green; 
+}
+
+.blockButton:disabled {
+  background-color: #ccc; 
+  cursor: not-allowed;
+}

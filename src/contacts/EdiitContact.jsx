@@ -1,23 +1,21 @@
-import { useState, useEffect } from 'react'
-import React from 'react'
-import styles from './AddContact.module.css'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import styles from './EditContact.module.css';
 
 
-
-export default function AddContact() {
-
+export default function EdiitContact() {
   const navigate = useNavigate();
 
-  const [contact, setContact] = useState({
+  const contactProfile = {
     name: "",
-    phoneNumber: "",
     email: "",
+    phoneNumber: "",
     address: ""
-  });
+    };
 
-  const [error, setError] = useState("");
+    const [contact, setContact] = useState(contactProfile);
+    const [error, setError] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -40,7 +38,7 @@ export default function AddContact() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/contact/saveContact', { 
+      const response = await fetch('http://localhost:8080/contact/editContact', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(contact),
@@ -55,7 +53,7 @@ export default function AddContact() {
     Swal.fire({
       icon: "success",
       title: "Contact Saved",
-      text: "Your contact has been added successfully!",
+      text: "Your contact has been edited successfully!",
     });
 
     navigate("/contact"); 

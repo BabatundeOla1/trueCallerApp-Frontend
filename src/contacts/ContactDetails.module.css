@@ -34,8 +34,6 @@
 .title {
   font-size: 28px;
   font-weight: bold;
-  margin-top: 10px;
-  align-items: center;
   text-align: center;
 }
 
@@ -66,20 +64,25 @@
 .deleteAndEditButton{
   display: flex;
   margin-top: 40px;
-  gap: 150px;
+  gap: 50px;
   height: 60px;
   border-radius: 5px;
   justify-content: space-between;
 }
 
-.deleteButton{
+.blockButton {
   width: 100px;
-  background-color: rgb(194, 16, 16);
+  background-color: #d32f2f;
+  color: white; 
   border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.deleteButton:hover {
-  background-color: rgb(137, 12, 12);
+.blockButton:hover {
+  background-color: #b71c1c; 
 }
 
 .editButton{
@@ -88,3 +91,69 @@
   border: none;
 }
 
+
+@media screen and (max-width: 480px) {
+  .contactDetailsPage {
+    padding: 15px;
+    width: 100%;
+    height: 700px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .detailsBox {
+    width: 100%;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .deleteAndEditButton {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .blockButton, .editButton {
+    width: 100%;
+  }
+
+  .backButton {
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .contactDetailsPage {
+    max-width: 90%;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .detailsBox {
+    max-width: 80%;
+  }
+
+  .deleteAndEditButton {
+    justify-content: space-between;
+    gap: 30px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .contactDetailsPage {
+    max-width: 600px;
+  }
+
+  .detailsBox {
+    max-width: 500px;
+  }
+
+  .deleteAndEditButton {
+    gap: 60px;
+  }
+}
