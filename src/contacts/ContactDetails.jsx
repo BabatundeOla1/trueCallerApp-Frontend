@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import DeleteContact from './DeleteContact'; 
 import styles from './ContactDetails.module.css';
 
 export default function ContactDetails() {
@@ -34,6 +35,7 @@ export default function ContactDetails() {
     }
   }, [contactId, navigate]);
 
+
   if (!contact) {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -55,7 +57,8 @@ export default function ContactDetails() {
       </div>
 
       <div className={styles.deleteAndEditButton}>
-        <button className={styles.deleteButton} >Delete</button>
+        {/* <button className={styles.deleteButton} >Delete</button> */}
+        <DeleteContact phoneNumber={contact.phoneNumber} />
         <button className={styles.editButton} onClick={() => navigate("/contact")} > Edit </button>
       </div>
 

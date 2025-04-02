@@ -3,7 +3,7 @@
   margin: auto;
   width: 500px;
   height: 800px;
-  /* min-height: 100vh; */
+  min-height: 93vh;
   padding: 20px;
   font-family: Arial, sans-serif;
   color: #ffffff;
@@ -69,8 +69,10 @@
 }
 
 .contactList {
-  max-height: 70vh; 
-  overflow-y: auto; 
+  margin-top: -10px;
+  max-height: 70vh;
+  overflow-x: hidden; 
+  overflow-y:scroll; 
   padding-right: 10px;  
   display: flex;
   flex-direction: column;
