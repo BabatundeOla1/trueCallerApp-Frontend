@@ -45,7 +45,7 @@ export default function PhoneNumberVerification() {
       <h2 className={styles.title}>Verify Phone Number</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}
-          placeholder="Enter phone number (e.g., 14158586273)" className={styles.input} />    
+          placeholder="Enter phone number (e.g., 2349036011443)" className={styles.input} />    
        
         <button type="submit" className={styles.submitButton}>
           Verify
