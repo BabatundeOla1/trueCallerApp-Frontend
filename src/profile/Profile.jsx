@@ -18,7 +18,7 @@ export default function Profile() {
 
   useEffect(() => {
     const storedUserId = localStorage.getItem("UserId");
-    const storedEmail = localStorage.getItem("UserEmail");
+        const storedEmail = localStorage.getItem("UserEmail");
 
     if (storedUserId) {
       setUserId(storedUserId);

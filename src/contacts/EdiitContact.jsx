@@ -6,6 +6,7 @@ import styles from './EditContact.module.css';
 
 export default function EdiitContact() {
   const navigate = useNavigate();
+  const { contactId } = useParams();
 
   const contactProfile = {
     name: "",
@@ -14,8 +15,8 @@ export default function EdiitContact() {
     address: ""
     };
 
-    const [contact, setContact] = useState(contactProfile);
-    const [error, setError] = useState("");
+  const [contact, setContact] = useState(contactProfile);
+  const [error, setError] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -24,8 +25,6 @@ export default function EdiitContact() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newContact = contact;
-    console.log(newContact);
 
     if (!contact.name || !contact.phoneNumber || !contact.email || !contact.address) {
       setError("Please fill in all required fields!");
@@ -39,15 +38,16 @@ export default function EdiitContact() {
   const fetchData = async () => {
     try {
       const response = await fetch('http://localhost:8080/contact/editContact', { 
-        method: 'POST',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(contact),
       });
 
-    const data = await response.json();
+    const updatedContact = await response.json();
+    console.log("Stored cotact: " + updatedContact)
 
     if(!response.ok){
-      throw new Error(data.message);
+      throw new Error(updatedContact.message);
     }
 
     Swal.fire({
@@ -68,11 +68,12 @@ export default function EdiitContact() {
   }
   }
 
+
   return (
     <div className={styles.addContactPage}>
 
       <form onSubmit={handleSubmit} className={styles.form}>
-      <h2 className={styles.title}>Add New Contact</h2>
+      <h2 className={styles.title}>Edit Contact</h2>
 
         <label htmlFor="name">Name:</label>
         <input name="name" type="text" placeholder="Name" value={contact.name} 

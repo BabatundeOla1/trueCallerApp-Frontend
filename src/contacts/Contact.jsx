@@ -15,7 +15,6 @@ export default function Contact() {
       const parsedContacts = JSON.parse(storedContacts);
       setContacts(parsedContacts);
       setFilteredContacts(parsedContacts);
-      console.log("Stored data: ", parsedContacts);
     }
     fetchContacts();
   }, []);

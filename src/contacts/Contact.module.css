@@ -254,7 +254,7 @@
     font-size: 24px;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
   }
 
   .addContactAndContacts {
@@ -263,7 +263,7 @@
   }
 
   .addContact {
-    width: 100%;
+    width: 500px;
     height: 50px;
     font-size: 16px;
     margin-top: 10px;
@@ -283,6 +283,7 @@
   }
 
   .contactName {
+    text-align: center;
     font-size: 16px;
   }
 
@@ -297,5 +298,11 @@
 
   .blockedContact {
     width: 100%;
+  }
+  .verifyAndBlockButton{
+    gap: 10px;
+  }
+  .blockedContact{
+    width: 200px;
   }
 }
