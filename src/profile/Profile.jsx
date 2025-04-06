@@ -30,9 +30,6 @@ export default function Profile() {
     }
   }, [navigate]);
 
-
-
-
   const [error, setError] = useState("");
 
   const handleContactInput = (event) => {
@@ -72,7 +69,7 @@ export default function Profile() {
   };
 
   const handleSkip = () => {
-    navigate("/dashboard");
+    navigate("/contact");
   };
 
   return (

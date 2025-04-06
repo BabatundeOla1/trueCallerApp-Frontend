@@ -1,4 +1,5 @@
 import SignUp from "./signUp/SignUp"
+import Login from"./login/Login"
 import Profile from "./profile/Profile"
 import Contact from "./contacts/Contact"
 import AddContact from "./contacts/AddContact"
@@ -13,6 +14,7 @@ function App() {
    <Router>
     <Routes>
       <Route path="/" element={<SignUp/>} />
+      <Route path = "/login" element = {<Login/>}/>
       <Route path="/update-profile" element = {<Profile/>} />
       <Route path="/contact" element = {<Contact/>} />
       <Route path="/add-contact" element = {<AddContact/>} />

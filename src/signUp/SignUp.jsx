@@ -55,8 +55,11 @@ export default function SignUp() {
     });
 
     const data = await response.json();
+    console.log("Data: ", data)
 
     if(!response.ok){
+      const errorMessage = data.message || "Registration failed!";
+      console.log("error Message: ", errorMessage)
       throw new Error(data.message);
     }
 
@@ -64,17 +67,21 @@ export default function SignUp() {
 
       localStorage.setItem("UserId", getUserId);
       localStorage.setItem("UserEmail", profile.contact.email);
+      localStorage.setItem("UserPassword", profile.password);
 
       Swal.fire('Registeration successful!');
       navigate('/update-profile');
 
-    } catch (error) {
+    } 
+    
+    catch (error) {
       console.error("Error:", error);
 
       Swal.fire({
         icon: "error",
         title: "Registration Failed",
-        text: error.message})
+        text: error.message || "An unexpected error occurred."
+      });
     }
   };
 
